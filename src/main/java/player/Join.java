@@ -14,7 +14,6 @@ public class Join implements Listener {
     public void onPlayerJoin(PlayerPreLoginEvent e)
     {
         String p = e.getName();
-        System.out.println(e.getName());
         String getip = Mysql.getIp(e.getAddress().getHostAddress());
         if (getip != null && getip != Bukkit.getOfflinePlayer(p).getUniqueId().toString()) {
             UUID d = UUID.fromString(getip);
@@ -25,9 +24,6 @@ public class Join implements Listener {
                 name = ChatColor.RED + Bukkit.getOfflinePlayer(d).getName();
             }
             Bukkit.broadcast("" + ChatColor.YELLOW + p + " has the same IP as " + name + ChatColor.RESET, "sameip.notification");
-        } else {
-            System.out.println(e.getAddress().getHostAddress());
-            System.out.println(Bukkit.getOfflinePlayer(p).getUniqueId().toString());
         }
         if (!Mysql.getPlayer(p)) {
             Mysql.addPlayer(p, e.getAddress().getHostAddress());
