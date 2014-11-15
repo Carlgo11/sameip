@@ -1,0 +1,6 @@
+mysql:
+  url: "jdbc:mysql://localhost:3306/"
+  username: "sameip"
+  password: "hEKSePDew4eAjDHD"
+  database: "sameip"
+  table: "players"

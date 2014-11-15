@@ -1,0 +1,9 @@
+main: com.carlgo11.sameip.Main
+name: Sameip
+version: 0.1
+author: carlgo11
+
+permissons:
+  sameip.notification:
+   default: op
+   description: Get notifications when a player joins with an existing ip.
