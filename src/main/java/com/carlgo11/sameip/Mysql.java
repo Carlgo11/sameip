@@ -37,7 +37,7 @@ public class Mysql {
         try {
             con = DriverManager.getConnection(Mysql.url + Mysql.database, Mysql.username, Mysql.password);
             st = con.createStatement();
-            st.execute("CREATE TABLE IF NOT EXISTS " + Mysql.database + "." + Mysql.table + " (player text, ip text);");
+            st.execute("CREATE TABLE IF NOT EXISTS " + Mysql.database + "." + Mysql.table + " (player text, ip text, username text);");
         } catch (SQLException ex) {
             Logger lgr = Logger.getLogger(Mysql.class.getName());
             lgr.log(Level.SEVERE, ex.getMessage(), ex);
@@ -155,9 +155,10 @@ public class Mysql {
         try {
             con = DriverManager.getConnection(url + database, Mysql.username, Mysql.password);
             st = con.createStatement();
-            PreparedStatement ps = con.prepareStatement("INSERT INTO " + Mysql.table + " (`player`, `ip`) VALUES (?, ?);");
+            PreparedStatement ps = con.prepareStatement("INSERT INTO " + Mysql.table + " (`player`, `ip`, `username`) VALUES (?, ?, ?);");
             ps.setString(1, Bukkit.getOfflinePlayer(player).getUniqueId().toString());
             ps.setString(2, ip);
+            ps.setString(3, player);
             ps.execute();
 
         } catch (SQLException ex) {

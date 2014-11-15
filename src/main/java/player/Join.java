@@ -24,7 +24,7 @@ public class Join implements Listener {
             } else {
                 name = ChatColor.RED + Bukkit.getOfflinePlayer(d).getName();
             }
-            Bukkit.broadcast("" + ChatColor.YELLOW + p + " is on the same ip as " + name + ChatColor.RESET, "sameip.notification");
+            Bukkit.broadcast("" + ChatColor.YELLOW + p + " has the same IP as " + name + ChatColor.RESET, "sameip.notification");
         } else {
             System.out.println(e.getAddress().getHostAddress());
             System.out.println(Bukkit.getOfflinePlayer(p).getUniqueId().toString());
